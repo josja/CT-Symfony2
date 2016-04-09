@@ -22,7 +22,7 @@ class TodoType extends AbstractType
             ->add('due', 'datetime')
         ;
     }
-
+    
     /**
      * @param OptionsResolver $resolver
      */

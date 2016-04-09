@@ -18,7 +18,7 @@
         <tbody>
         {% for todo in todos %}
             <tr>
-                <td><a href="{{ path('_show', { 'id': todo.id }) }}">{{ todo.id }}</a></td>
+                <td><a href="{{ path('todo_show', { 'id': todo.id }) }}">{{ todo.id }}</a></td>
                 <td>{% if todo.done %}Yes{% else %}No{% endif %}</td>
                 <td>{{ todo.todo }}</td>
                 <td>{{ todo.priority }}</td>
@@ -27,10 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('_show', { 'id': todo.id }) }}">show</a>
+                            <a href="{{ path('todo_show', { 'id': todo.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('_edit', { 'id': todo.id }) }}">edit</a>
+                            <a href="{{ path('todo_edit', { 'id': todo.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('_new') }}">Create a new entry</a>
+            <a href="{{ path('todo_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

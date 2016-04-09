@@ -19,7 +19,7 @@ class TodoController extends Controller
     /**
      * Lists all Todo entities.
      *
-     * @Route("/", name="_index")
+     * @Route("/", name="todo_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class TodoController extends Controller
     /**
      * Creates a new Todo entity.
      *
-     * @Route("/new", name="_new")
+     * @Route("/new", name="todo_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class TodoController extends Controller
             $em->persist($todo);
             $em->flush();
 
-            return $this->redirectToRoute('_show', array('id' => $todo->getId()));
+            return $this->redirectToRoute('todo_show', array('id' => $todo->getId()));
         }
 
         return $this->render('todo/new.html.twig', array(
@@ -62,7 +62,7 @@ class TodoController extends Controller
     /**
      * Finds and displays a Todo entity.
      *
-     * @Route("/{id}", name="_show")
+     * @Route("/{id}", name="todo_show")
      * @Method("GET")
      */
     public function showAction(Todo $todo)
@@ -78,7 +78,7 @@ class TodoController extends Controller
     /**
      * Displays a form to edit an existing Todo entity.
      *
-     * @Route("/{id}/edit", name="_edit")
+     * @Route("/{id}/edit", name="todo_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Todo $todo)
@@ -92,7 +92,7 @@ class TodoController extends Controller
             $em->persist($todo);
             $em->flush();
 
-            return $this->redirectToRoute('_edit', array('id' => $todo->getId()));
+            return $this->redirectToRoute('todo_edit', array('id' => $todo->getId()));
         }
 
         return $this->render('todo/edit.html.twig', array(
@@ -105,7 +105,7 @@ class TodoController extends Controller
     /**
      * Deletes a Todo entity.
      *
-     * @Route("/{id}", name="_delete")
+     * @Route("/{id}", name="todo_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Todo $todo)
@@ -119,7 +119,7 @@ class TodoController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('_index');
+        return $this->redirectToRoute('todo_index');
     }
 
     /**
@@ -132,7 +132,7 @@ class TodoController extends Controller
     private function createDeleteForm(Todo $todo)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('_delete', array('id' => $todo->getId())))
+            ->setAction($this->generateUrl('todo_delete', array('id' => $todo->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
