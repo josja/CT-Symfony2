@@ -3,7 +3,7 @@
 
 A Symfony project created on April 8, 2016, 12:35 pm.
 
-Todo is a TodoMVC built from scratch as a coding task for Buro Blauw Geel.
+Todo is a MVC application built as a coding task for Buro Blauw Geel.
 
 Approached it pragmatically by creating a Symfony v2.8 project and add the Todo entity. The newer Symfony version
 caught me sometimes off guard, like it doesn't come preconfigured with Assetic. Diving into Angular this
