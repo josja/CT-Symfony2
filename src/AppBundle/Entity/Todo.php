@@ -62,7 +62,8 @@ class Todo
     public function  __construct()
     {
         $this->created = new \DateTime('now');
-        $this->due = new \DateTime('now');
+        $this->due = (new \DateTime('now'))->modify('+1 day');
+        $this->priority = 0;
     }
 
     /**

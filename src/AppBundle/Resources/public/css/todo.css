@@ -1,0 +1,26 @@
+/* Table Rows */
+tr  {
+    background: #FFA;
+}
+
+tr.done  {
+    text-decoration: line-through;
+    color: gray;
+}
+
+tr.prio_high  {
+    background: #FAA;
+}
+
+tr.prio_low  {
+    background: #AFA;
+}
+
+/* Buttons */
+td form {
+    display: inline-block;
+}
+
+input[type='submit'] {
+    color: #337ab7; /* make it look like a regular anchor
+}

@@ -28,8 +28,16 @@ class TodoController extends Controller
 
         $todos = $em->getRepository('AppBundle:Todo')->findAll();
 
+        //// Pre generate each delete form for the Delete button
+        $deleteForms = array();
+        foreach ($todos as $todo) {
+            $deleteForms[$todo->getId()] = $this->createDeleteForm($todo)->createView();
+        }
+        ////
+
         return $this->render('todo/index.html.twig', array(
             'todos' => $todos,
+            'deleteForms' => $deleteForms
         ));
     }
 
@@ -50,7 +58,7 @@ class TodoController extends Controller
             $em->persist($todo);
             $em->flush();
 
-            return $this->redirectToRoute('todo_show', array('id' => $todo->getId()));
+            return $this->redirectToRoute('todo_index');
         }
 
         return $this->render('todo/new.html.twig', array(
@@ -88,11 +96,16 @@ class TodoController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->addFlash(
+                'notice',
+                'The Todo has been stored.'
+            );
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($todo);
             $em->flush();
 
-            return $this->redirectToRoute('todo_edit', array('id' => $todo->getId()));
+            return $this->redirectToRoute('todo_index');
         }
 
         return $this->render('todo/edit.html.twig', array(
@@ -100,6 +113,29 @@ class TodoController extends Controller
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
+    }
+
+    /**
+     * Sets existing Todo entity to DONE.
+     *
+     * @Route("/{id}/done", name="todo_done")
+     * @Method({"GET"})
+     */
+    public function doneAction(Todo $todo)
+    {
+        if (true) {
+            $this->addFlash(
+                'notice',
+                'The Todo has been set to Done.'
+            );
+
+            $em = $this->getDoctrine()->getManager();
+            $todo->setDone(true);
+            $em->persist($todo);
+            $em->flush();
+
+            return $this->redirectToRoute('todo_index');
+        }
     }
 
     /**
@@ -114,6 +150,10 @@ class TodoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash(
+                'notice',
+                'The Todo has been deleted.'
+            );
             $em = $this->getDoctrine()->getManager();
             $em->remove($todo);
             $em->flush();

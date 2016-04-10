@@ -4,7 +4,12 @@
     <h1>Todo creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div style="display: none">
+            {{ form_widget(form.created) }}
+            {{ form_widget(form.done) }}
+        </div>
+        {{ form_rest(form) }}
+
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 

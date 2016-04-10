@@ -1,13 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Todo list</h1>
-
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Done</th>
                 <th>Todo</th>
                 <th>Priority</th>
                 <th>Created</th>
@@ -17,31 +13,46 @@
         </thead>
         <tbody>
         {% for todo in todos %}
-            <tr>
-                <td><a href="{{ path('todo_show', { 'id': todo.id }) }}">{{ todo.id }}</a></td>
-                <td>{% if todo.done %}Yes{% else %}No{% endif %}</td>
-                <td>{{ todo.todo }}</td>
-                <td>{{ todo.priority }}</td>
-                <td>{% if todo.created %}{{ todo.created|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if todo.due %}{{ todo.due|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('todo_show', { 'id': todo.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('todo_edit', { 'id': todo.id }) }}">edit</a>
-                        </li>
-                    </ul>
+            <tr class="{% if todo.done %}done{% endif %}
+                {% if (todo.priority >= 2) %} prio_high
+                {% elseif (todo.priority < 1) %} prio_low{% endif %}">
+                <td><!-- Show Todo -->
+                    {{ todo.todo }}
+                </td>
+                <td><!-- Show Pretty Priorities -->
+                    {% if (todo.priority >= 2) %} High
+                    {% elseif (todo.priority >= 1) %} Normal
+                    {% else %} Low {% endif %}
+                </td>
+                <td><!-- Show Pretty Age -->
+                    {{ todo.created|time_diff }}
+                </td>
+                <td><!-- Show Pretty Time Left -->
+                    {{ todo.due|time_diff }}
+                </td>
+                <td><!-- Render Action Buttons -->
+                    <a href="{{ path('todo_show', { 'id': todo.id }) }}">
+                        <input type="submit" value="Show">
+                    </a>
+                    <a href="{{ path('todo_edit', { 'id': todo.id }) }}">
+                        <input type="submit" value="Edit">
+                    </a>
+                    {{ form_start(deleteForms[todo.id]) }}
+                        <input type="submit" value="Delete">
+                    {{ form_end(deleteForms[todo.id]) }}
+                    {% if not todo.done %}
+                        <form action="{{ path('todo_done', { 'id': todo.id }) }}">
+                            <input type="hidden" name="done" value="true" />
+                            <input type="submit" value="Done">
+                        </form>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('todo_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <a href="{{ path('todo_new') }}">
+        <input type="submit" value="New Todo">
+    </a>
 {% endblock %}
