@@ -22,3 +22,28 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+dunglas_angular_csrf:
+    token:
+        # The CSRF token id
+        id: angular
+    header:
+        # The name of the HTTP header to check (default to the AngularJS default)
+        name: X-XSRF-TOKEN
+    cookie:
+        # The name of the cookie to set (default to the AngularJS default)
+        name: XSRF-TOKEN
+        # Expiration time of the cookie
+        expire: 0
+        # Path of the cookie
+        path: /
+        # Domain of the cookie
+        domain: todo.dev
+        # If true, set the cookie only on HTTPS connection
+        secure: false
+        # Patterns of URLs to set the cookie
+        set_on:
+            - { path: "^/url-pattern", route: "^route_name_pattern$", host: "todo.dev", methods: [GET, POST] }
+    # Patterns of URLs to check for a valid CSRF token
+    secure:
+        - { path: "^/url-pattern", route: "^route_name_pattern$", host: "todo.dev", methods: [GET, POST] }

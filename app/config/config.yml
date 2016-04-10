@@ -37,14 +37,6 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
-# Assetic
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    bundles:        [ ]
-    filters:
-        cssrewrite: ~
-
 # Doctrine Configuration
 doctrine:
     dbal:
