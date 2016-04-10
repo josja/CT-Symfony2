@@ -9,7 +9,7 @@ Approached it pragmatically by creating a Symfony v2.8 project and add the Todo 
 caught me sometimes off guard, like it doesn't come preconfigured with Assetic. Diving into Angular this
 is actually a bonus (Angular doesn't like Assetic either).
 
-Next step is fine tuning the functionality and looks.
+Current step is to fine tune the functionality and looks.
 
-Last step could be to make it a RESTFull API and create a simple AngularJS front end using the API.
+Last step could be to add a RESTFull API and create a simple AngularJS frontend.
 
