@@ -1,21 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Todo edit</h1>
-
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Store" />
-    {{ form_end(edit_form) }}
+    <table class="narrow">
+        <tbody>
+            <tr>
+                <th>Done</th>
+                <td>{{ form_row(edit_form.done, {'label_attr': {'class': 'hidden'}}) }}</td>
+            </tr>
+            <tr>
+                <th>Todo</th>
+                <td>{{ form_row(edit_form.todo, {'label_attr': {'class': 'hidden'}}) }}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td>{{ form_row(edit_form.priority, {'label_attr': {'class': 'hidden'}}) }}</td>
+            </tr>
+            <tr>
+                <th>Due</th>
+                <td>{{ form_row(edit_form.due, {'label_attr': {'class': 'hidden'}}) }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="{{ path('todo_index') }}" class="button">Back</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('todo_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                    <div class="hidden">{{ form_rest(edit_form) }}</div>
+                    <div class="right"><input type="submit" value="Store" /></div>
+
+                    {{ form_end(edit_form) }}
+
+                    {{ form_start(delete_form) }}
+                    <div class="center"><input type="submit" value="Delete"></div>
+                    {{ form_end(delete_form) }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}

@@ -31,8 +31,8 @@
                     {{ todo.due|time_diff }}
                 </td>
                 <td><!-- Render Action Buttons -->
-                    <a href="{{ path('todo_show', { 'id': todo.id }) }}">Show</a>
-                    <a href="{{ path('todo_edit', { 'id': todo.id }) }}">Edit</a>
+                    <a href="{{ path('todo_show', { 'id': todo.id }) }}" class="button">Show</a>
+                    <a href="{{ path('todo_edit', { 'id': todo.id }) }}" class="button">Edit</a>
                     {{ form_start(deleteForms[todo.id]) }}
                         <input type="submit" value="Delete">
                     {{ form_end(deleteForms[todo.id]) }}
@@ -45,8 +45,13 @@
                 </td>
             </tr>
         {% endfor %}
+        <tr>
+            <td colspan="4"></td>
+            <td>
+                <a href="{{ path('todo_new') }}" class="button">New</a>
+            </td>
         </tbody>
     </table>
 
-    <a href="{{ path('todo_new') }}">New Todo</a>
+
 {% endblock %}

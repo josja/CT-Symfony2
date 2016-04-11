@@ -1,21 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Todo creation</h1>
-
     {{ form_start(form) }}
-        <div style="display: none">
-            {{ form_widget(form.created) }}
-            {{ form_widget(form.done) }}
-        </div>
-        {{ form_rest(form) }}
+    <table class="narrow">
+        <tbody>
+            <tr>
+                <th>Todo</th>
+                <td>{{ form_row(form.todo, {'label_attr': {'class': 'hidden'}}) }}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td>{{ form_row(form.priority, {'label_attr': {'class': 'hidden'}}) }}</td>
+            </tr>
+            <tr>
+                <th>Due</th>
+                <td>{{ form_row(form.due, {'label_attr': {'class': 'hidden'}}) }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="{{ path('todo_index') }}" class="button">Back</a>
 
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('todo_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                    <div class="hidden">{{ form_rest(form) }}</div>
+                    <div class="right"><input type="submit" value="Create" /></div>
+                    {{ form_end(form) }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}

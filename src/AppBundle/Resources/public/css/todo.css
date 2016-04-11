@@ -1,4 +1,8 @@
 /* Table Rows */
+table.narrow {
+    width: 300px;
+}
+
 tr  {
     background: #FFA;
 }
@@ -16,11 +20,60 @@ tr.prio_low  {
     background: #AFA;
 }
 
-/* Buttons */
+/* Table Fields */
+
+table.narrow th {
+    width: 100px;
+}
+
+td, th {
+    padding: 1em;
+}
+
+/* Buttons & Forms */
+
+input[type=text] {
+    padding: 5px;
+    border: 2px solid #FA6;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color: #333;
+}
+
+.button, input[type=submit] {
+    display: inline-block;
+    padding-top: 0px;
+    width: 4em;
+    height: 1.5em;
+    background: #FA6;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.button:hover, input[type=submit]:hover {
+    color: #FFA;
+    text-decoration: none;
+}
+
 td form {
     display: inline-block;
 }
 
-input[type='submit'] {
-    color: #337ab7; /* make it look like a regular anchor
+/* Align Attributes */
+
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
 }
