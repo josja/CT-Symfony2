@@ -23,11 +23,11 @@ class TodoControllerTest extends WebTestCase
         $this->assertContains('Created', $content, true);
         $this->assertContains('Due', $content, true);
         $this->assertContains('Actions', $content, true);
-        $this->assertContains('New Todo', $content, true);
+        $this->assertContains('New', $content, true);
 
         //fwrite(STDERR, print_r($content, TRUE));
 
-        $crawler = $client->click($crawler->selectLink('New Todo')->link());
+        $crawler = $client->click($crawler->selectLink('New')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(

@@ -19,6 +19,6 @@ class DefaultControllerTest extends WebTestCase
         $this->assertContains('Created', $client->getResponse()->getContent(), true);
         $this->assertContains('Due', $client->getResponse()->getContent(), true);
         $this->assertContains('Actions', $client->getResponse()->getContent(), true);
-        $this->assertContains('New Todo', $client->getResponse()->getContent(), true);
+        $this->assertContains('New', $client->getResponse()->getContent(), true);
     }
 }
