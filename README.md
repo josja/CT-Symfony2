@@ -1,5 +1,6 @@
 ### Todo Notes
 ===
+[![Build Status](https://travis-ci.org/josja/notes.svg?branch=master)](https://travis-ci.org/josja/notes)
 
 A Symfony project created on April 8, 2016, 12:35 pm.
 
