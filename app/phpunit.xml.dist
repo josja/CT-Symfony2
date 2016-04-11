@@ -6,12 +6,12 @@
          backupGlobals="false"
          colors="true"
          bootstrap="autoload.php"
+         convertNoticesToExceptions="false"
+         convertWarningsToExceptions="false"
 >
+
     <php>
         <ini name="error_reporting" value="-1" />
-        <!--
-            <server name="KERNEL_DIR" value="/path/to/your/app/" />
-        -->
     </php>
 
     <testsuites>
