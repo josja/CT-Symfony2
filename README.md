@@ -1,17 +1,15 @@
-### Notes/Todo
+### Todo Notes
 ===
 
 A Symfony project created on April 8, 2016, 12:35 pm.
 
-Todo is a TodoMVC built from scratch as a coding task for Buro Blauw Geel.
+Todo is a MVC application built as a coding task for Buro Blauw Geel.
 
-Main issue was what to do with this simple task. So approached it pragmatically
-by create a Symfony v2.8 project and add the TodoType. Also the new Symfony version
-caught me off guard, like it doesn't come preconfigured with Assetic. Diving in to Angular this
-is actually a bonud (Angular doesn't like Assetic either).
+Approached it pragmatically by creating a Symfony v2.8 project and add the Todo entity. The newer Symfony version
+caught me sometimes off guard, like it doesn't come preconfigured with Assetic. Diving into Angular this
+is actually a bonus (Angular doesn't like Assetic either).
 
-Next step was fine tuning the functionality and looks.
+Current step is to fine tune the functionality and looks.
 
-Last step is to make it a RESTFull API and create a simple AngularJS front end using the API.
+Last step could be to add a RESTFull API and create a simple AngularJS frontend.
 
-Bonus would be
