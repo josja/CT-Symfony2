@@ -10,7 +10,8 @@ Approached it pragmatically by creating a Symfony v2.8 project and add the Todo 
 caught me sometimes off guard, like it doesn't come preconfigured with Assetic. Diving into Angular this
 is actually a bonus (Angular doesn't like Assetic either).
 
-Current step is to fine tune the functionality and looks.
+Tests cover 82.61% of functions & methods. Added Travis config to show pretty badge. Travis was on my bucket list
+a long time, finally a reason to try it out.
 
 Last step could be to add a RESTFull API and create a simple AngularJS frontend.
 
