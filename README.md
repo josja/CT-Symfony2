@@ -11,7 +11,7 @@ caught me sometimes off guard, like it doesn't come preconfigured with Assetic. 
 is actually a bonus (Angular doesn't like Assetic either).
 
 Tests cover 82.61% of functions & methods. Added Travis config to show pretty badge. Travis was on my bucket list
-a long time, finally a reason to try it out.
+a long time, finally a reason to start using it.
 
 Last step could be to add a RESTFull API and create a simple AngularJS frontend.
 
