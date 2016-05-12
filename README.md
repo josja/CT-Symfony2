@@ -1,4 +1,4 @@
-### Todo Notes
+### Symfony2 Code Task: Todo Notes
 ===
 [![Build Status](https://travis-ci.org/josja/notes.svg?branch=master)](https://travis-ci.org/josja/notes)
 
